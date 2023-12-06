@@ -35,6 +35,7 @@ class PodVideoPlayer extends StatefulWidget {
   final double frameAspectRatio;
   final double videoAspectRatio;
   final bool alwaysShowProgressBar;
+  final bool showController;
   final bool matchVideoAspectRatioToFrame;
   final bool matchFrameAspectRatioToVideo;
   final PodProgressBarConfig podProgressBarConfig;
@@ -72,6 +73,7 @@ class PodVideoPlayer extends StatefulWidget {
     this.videoThumbnail,
     this.onToggleFullScreen,
     this.onLoading,
+    this.showController = true,
   }) {
     addToUiController();
   }
@@ -85,6 +87,7 @@ class PodVideoPlayer extends StatefulWidget {
       ///add to ui controller
       ..podPlayerLabels = podPlayerLabels
       ..alwaysShowProgressBar = alwaysShowProgressBar
+      ..showController = showController
       ..podProgressBarConfig = podProgressBarConfig
       ..overlayBuilder = overlayBuilder
       ..videoTitle = videoTitle
@@ -97,8 +100,7 @@ class PodVideoPlayer extends StatefulWidget {
   State<PodVideoPlayer> createState() => _PodVideoPlayerState();
 }
 
-class _PodVideoPlayerState extends State<PodVideoPlayer>
-    with TickerProviderStateMixin {
+class _PodVideoPlayerState extends State<PodVideoPlayer> with TickerProviderStateMixin {
   late PodGetXVideoController _podCtr;
 
   // late String tag;
